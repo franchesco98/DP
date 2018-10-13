@@ -21,6 +21,7 @@ public class Shout extends DomainEntity {
 	public void setUsername(final String username) {
 		this.username = username;
 	}
+
 	@NotBlank
 	@URL
 	public String getLink() {
