@@ -32,7 +32,7 @@
 
 	<name>Acme Shout</name>
 	<url>http://www.acme-shout.com</url>
-	<description>User can use this system to shout.</description>
+	<description>Users can use this system to shout</description>
 	
 	<!-- Build commands -->
 
