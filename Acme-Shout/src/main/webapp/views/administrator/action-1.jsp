@@ -10,36 +10,10 @@
 
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
-<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="jstl"	uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
-<head> <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script> </head>
 
 <p><spring:message code="administrator.action.1" /></p>
-
-<body>
-
-<div id="graficos" class="graficos" > 
-
-
-<canvas id="grafica">
-        </canvas>
-
-</div>
-
-<script type="text/javascript"> 
-var migrafica = document.getElementById('grafica').getContext('2d');
-
-var todosGritos = ${statistics.get('count.all.shouts')};
-var gritosCortos = ${statistics.get('count.short.shouts')};
-var gritosLargos = ${statistics.get('count.long.shouts')};
-var graficaBarras = new Chart(migrafica, {type: 'bar', data: {labels: ['Todos los gritos','Gritos cortos','Gritos largos'], datasets:[{label:'indicadores',data:[todosGritos,gritosCortos,gritosLargos], backgroundColor:'blue'}]}
- 
- });
-
-
-</script>
-
-</body>
