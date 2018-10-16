@@ -54,10 +54,13 @@ public class AdministratorController extends AbstractController {
 	@RequestMapping("/action-2")
 	public ModelAndView action2() {
 		ModelAndView result;
+		Map<String, Double> statistics;
+
+		statistics = this.shoutService.computeStatistics();
 
 		result = new ModelAndView("administrator/action-2");
+		result.addObject("statistics", statistics);
 
 		return result;
 	}
-
 }
