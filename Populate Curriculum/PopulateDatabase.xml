@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="customer" />
+		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="super" />
+		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+
+
+	<!-- Other domain beans come here -->
+
+
+
+	<bean id="configuration1" class="domain.Configuration">
+		<property name="patternPN" value="3333" />
+		<property name="finderCacheTime" value="4" />
+		<property name="numberOfResult" value="50" />
+
+	</bean>
+
+
+	<bean id="admin1" class="domain.Administrator">
+
+		<property name="userAccount">
+			<ref bean="userAccount1" />
+		</property>
+
+
+		<property name="name" value="Rafael" />
+		<property name="middleName" value="Corchuelito el crack" />
+		<property name="surname" value="Corchuelo" />
+		<property name="photo" value="http://corchuelito.com" />
+		<property name="email" value="chorchuelo@gmail.com" />
+		<property name="phoneNumber" value="+34 (123) 674893476" />
+		<property name="address" value="Avenida Reina Mercedes" />
+		<property name="numSocialProfile" value="1" />
+
+		<property name="boxes">
+			<list>
+				<ref bean="box1admin1" />
+				<ref bean="box2admin1" />
+				<ref bean="box3admin1" />
+				<ref bean="box4admin1" />
+			</list>
+		</property>
+
+
+	</bean>
+
+	<bean id="box1admin1" class="domain.Box">
+		<property name="name" value="TrashBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+	<bean id="box2admin1" class="domain.Box">
+		<property name="name" value="SpamBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+	<bean id="box3admin1" class="domain.Box">
+		<property name="name" value="InBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+	<bean id="box4admin1" class="domain.Box">
+		<property name="name" value="OutBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+
+
+	<bean id="referee1" class="domain.Referee">
+
+		<property name="userAccount">
+			<ref bean="userAccount2" />
+		</property>
+
+
+		<property name="name" value="Octavio" />
+		<property name="middleName" value="Agray" />
+		<property name="surname" value="Martin" />
+		<property name="photo" value="http://octavioPSHP.com" />
+		<property name="email" value="octavio@gmail.com" />
+		<property name="phoneNumber" value="+34 (123) 678893476" />
+		<property name="address" value="Avenida Reina Alola" />
+		<property name="numSocialProfile" value="8" />
+
+		<property name="boxes">
+			<list>
+				<ref bean="box1referee1" />
+				<ref bean="box2referee1" />
+				<ref bean="box3referee1" />
+				<ref bean="box4referee1" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="box1referee1" class="domain.Box">
+		<property name="name" value="TrashBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+	<bean id="box2referee1" class="domain.Box">
+		<property name="name" value="SpamBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+	<bean id="box3referee1" class="domain.Box">
+		<property name="name" value="InBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+	<bean id="box4referee1" class="domain.Box">
+		<property name="name" value="OutBox" />
+		<property name="systemBox" value="True" />
+	</bean>
+
+
+	<bean id="report1" class="domain.Report">
+
+
+
+
+		<property name="writtenMoment" value="12/11/1998 12:00" />
+		<property name="description" value="descripcion 1" />
+		<property name="attachment" value="http://unaurl" />
+		<property name="isFinal" value="True" />
+		<property name="referee">
+			<ref bean="referee1" />
+		</property>
+		
+	</bean>
+
+
+
+	<bean id="curriculum1" class="domain.Curriculum">
+
+		<property name="ticker" value="181110-123456" />
+		<property name="personalRecord" ><ref bean="personalRecord1"/>
+		</property>
+		<property name="educationRecords" ><list><ref bean="educationRecord1"/></list>
+		</property>
+		<property name="professionalRecords" ><list><ref bean="professionalRecord1"/></list>
+		</property>
+		<property name="endorserRecords" ><list><ref bean="endorserRecord1"/></list>
+		</property>
+		<property name="miscellaneousRecords" ><list><ref bean="miscellaneousRecord1"/></list>
+		</property>
+		
+		
+	</bean>
+
+
+<bean id="personalRecord1" class="domain.PersonalRecord">
+
+
+
+
+		<property name="fullName" value="Pepe Galindo" />
+		<property name="photo" value="http://unaurl" />
+		<property name="email" value="octavio@gmail.com"  />
+		<property name="phoneNumber" value="+34 (123) 678893476"  />
+		<property name="urlLinkedin" value="http://unaurl" />
+		
+	</bean>
+
+
+<bean id="educationRecord1" class="domain.EducationRecord">
+
+
+
+
+		<property name="title" value="Pepe Galindo" />
+		<property name="startDate" value="12/9/2010 12:00"  />
+		<property name="endDate" value="12/11/1998 12:35"  />
+		<property name="institution" value="US"  />
+		<property name="link" value="http://unaurl" />
+		<property name="comment" value="Todo perfecto funciona sobre ruedas" />
+		
+		
+	</bean>
+
+
+<bean id="professionalRecord1" class="domain.ProfessionalRecord">
+
+
+
+
+		<property name="companyName" value="emasesa" />
+		<property name="startDate" value="12/9/2010 12:00"  />
+		<property name="endDate" value="12/11/1998 12:35"  />
+		<property name="rolePlayed" value="admministrator"  />
+		<property name="attachmentLink" value="http://unaurl" />
+		<property name="comment" value="prueba 1" />
+		
+		
+	</bean>
+
+
+
+<bean id="endorserRecord1" class="domain.EndorserRecord">
+
+
+
+
+		<property name="fullName" value="Lola Camino Gómez" />
+		<property name="email" value="octavio@gmail.com" />
+		<property name="phoneNumber" value="+34 (123) 678893978"  />
+		<property name="linkedinLink" value="http://unaurl"  />
+		<property name="comment" value="prueba 9" />
+		
+		
+	</bean>
+
+
+
+<bean id="miscellaneousRecord1" class="domain.MiscellaneousRecord">
+
+
+
+
+		<property name="title" value="final de prueba" />
+		<property name="attachmentLink" value="http://unaurl" />
+		<property name="comment" value="si funciona" />
+
+		
+		
+		
+	</bean>
+
+
+
+<bean id="curriculum2" class="domain.Curriculum">
+
+		<property name="ticker" value="181110-123457" />
+		<property name="personalRecord" ><ref bean="personalRecord2"/>
+		</property>
+		<property name="educationRecords" ><list><ref bean="educationRecord2"/></list>
+		</property>
+		
+</bean>
+
+<bean id="personalRecord2" class="domain.PersonalRecord">
+
+
+
+
+		<property name="fullName" value="Chema Galindo" />
+		<property name="photo" value="http://unaurl" />
+		<property name="email" value="octavio@gmail.com"  />
+		<property name="phoneNumber" value="+34 (123) 678893456"  />
+		<property name="urlLinkedin" value="http://unaurl" />
+		
+	</bean>
+	
+	<bean id="educationRecord2" class="domain.EducationRecord">
+
+
+
+
+		<property name="title" value="Pepe Galindo" />
+		<property name="startDate" value="12/9/2010 12:00"  />
+		<property name="endDate" value="12/11/1998 12:35"  />
+		<property name="institution" value="US"  />
+		<property name="link" value="http://unaurl" />
+		<property name="comment" value="Todo perfecto funciona sobre ruedas" />
+		
+		
+	</bean>
+
+
+<bean id="curriculum3" class="domain.Curriculum">
+
+		<property name="ticker" value="181110-123477" />
+		<property name="personalRecord" ><ref bean="personalRecord3"/>
+		</property>
+		
+		
+</bean>
+
+<bean id="personalRecord3" class="domain.PersonalRecord">
+
+
+
+
+		<property name="fullName" value="Gonzalo Galindo" />
+		<property name="photo" value="http://unaurl" />
+		<property name="email" value="octavio@gmail.com"  />
+		<property name="phoneNumber" value="+34 (123) 678893456"  />
+		<property name="urlLinkedin" value="http://unaurl" />
+		
+	</bean>
+	
+	<bean id="curriculum4" class="domain.Curriculum">
+
+		<property name="ticker" value="181110-123877" />
+		<property name="personalRecord" ><ref bean="personalRecord4"/>
+		</property>
+		<property name="endorserRecords" ><list><ref bean="endorserRecord4"/><ref bean="endorserRecord5"/></list>
+		</property>
+		<property name="miscellaneousRecords" ><list><ref bean="miscellaneousRecord4"/></list>
+		</property>
+		
+		
+</bean>
+
+<bean id="personalRecord4" class="domain.PersonalRecord">
+
+
+
+
+		<property name="fullName" value="Maria Galindo" />
+		<property name="photo" value="http://unaurl" />
+		<property name="email" value="maria@gmail.com"  />
+		<property name="phoneNumber" value="+34 (123) 678365456"  />
+		<property name="urlLinkedin" value="http://unaurl" />
+		
+	</bean>
+	
+	<bean id="endorserRecord4" class="domain.EndorserRecord">
+
+
+
+
+		<property name="fullName" value="Lola Pérez Gómez" />
+		<property name="email" value="lolita@gmail.com" />
+		<property name="phoneNumber" value="+34 (123) 678893977"  />
+		<property name="linkedinLink" value="http://unaurl"  />
+		<property name="comment" value="prueba 10" />
+		
+		
+	</bean>
+	
+	<bean id="endorserRecord5" class="domain.EndorserRecord">
+
+
+
+
+		<property name="fullName" value="Antonia Gómez" />
+		<property name="email" value="antonia@gmail.com" />
+		<property name="phoneNumber" value="+34 (123) 878893978"  />
+		<property name="linkedinLink" value="http://url"  />
+		<property name="comment" value="muy contenta" />
+		
+		
+	</bean>
+	
+	
+	<bean id="miscellaneousRecord4" class="domain.MiscellaneousRecord">
+
+
+
+
+		<property name="title" value="final de prueba 2" />
+		<property name="attachmentLink" value="http://unaul" />
+		<property name="comment" value="es pero que funciona" />
+
+		
+		
+		
+	</bean>
+	
+</beans>
