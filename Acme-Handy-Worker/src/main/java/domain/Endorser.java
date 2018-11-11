@@ -39,7 +39,7 @@ public class Endorser extends Actor {
 
 
 	@Valid
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Endorsement getEndorsementSent() {
 		return this.endorsementSent;
 	}
@@ -49,7 +49,7 @@ public class Endorser extends Actor {
 	}
 
 	@Valid
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Endorsement getEndorsementReceived() {
 		return this.endorsementReceived;
 	}

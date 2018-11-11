@@ -73,7 +73,7 @@ public class Complaint extends DomainEntity {
 
 
 	@Valid
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	public Customer getCustomer() {
 		return this.customer;
 	}

@@ -50,7 +50,7 @@ public class Actor extends DomainEntity {
 	public void setName(final String name) {
 		this.name = name;
 	}
-	@NotBlank
+
 	public String getMiddleName() {
 		return this.middleName;
 	}
@@ -91,7 +91,7 @@ public class Actor extends DomainEntity {
 	public void setPhoneNumber(final String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	@NotBlank
+	//@NotBlank
 	public String getAddress() {
 		return this.address;
 	}

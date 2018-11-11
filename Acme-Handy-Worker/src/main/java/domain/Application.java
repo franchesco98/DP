@@ -14,6 +14,7 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -44,6 +45,7 @@ public class Application extends DomainEntity {
 	}
 
 	@NotBlank
+	@Pattern(regexp = "^ACCEPTED|PENDING|REJECTED|$")
 	public String getStatus() {
 		return this.status;
 	}
@@ -53,7 +55,7 @@ public class Application extends DomainEntity {
 	}
 
 	@Min(0)
-	@Digits(integer = 2, fraction = 4)
+	@Digits(integer = 4, fraction = 2)
 	public double getOfferedPrice() {
 		return this.offeredPrice;
 	}
@@ -71,7 +73,6 @@ public class Application extends DomainEntity {
 		this.comment = comment;
 	}
 
-	@NotBlank
 	public String getRejectionReason() {
 		return this.rejectionReason;
 	}

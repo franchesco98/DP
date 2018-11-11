@@ -13,4 +13,6 @@ public class Referee extends Actor {
 		super();
 	}
 
+	//relationships
+
 }

@@ -24,7 +24,6 @@ public class Section extends DomainEntity {
 		super();
 	}
 
-	@NotBlank
 	@Column(unique = true)
 	@Min(0)
 	public int getNumber() {

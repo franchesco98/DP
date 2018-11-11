@@ -13,15 +13,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Access(AccessType.PROPERTY)
 public class Note extends DomainEntity {
 
-	private Date	wrritenMoment;
-	private String	mandatory;
+	private Date	writtenMoment;
 	private String	customerComment;
 	private String	refereeComment;
 	private String	handyWorkerComment;
@@ -34,25 +30,14 @@ public class Note extends DomainEntity {
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	public Date getWrritenMoment() {
-		return this.wrritenMoment;
+	public Date getWrittenMoment() {
+		return this.writtenMoment;
 	}
 
-	public void setWrritenMoment(final Date wrritenMoment) {
-		this.wrritenMoment = wrritenMoment;
+	public void setWrittenMoment(final Date wrritenMoment) {
+		this.writtenMoment = wrritenMoment;
 	}
 
-	@NotBlank
-	public String getMandatory() {
-		return this.mandatory;
-	}
-
-	public void setMandatory(final String mandatory) {
-		this.mandatory = mandatory;
-	}
-
-	@NotBlank
 	public String getCustomerComment() {
 		return this.customerComment;
 	}
@@ -61,7 +46,6 @@ public class Note extends DomainEntity {
 		this.customerComment = customerComment;
 	}
 
-	@NotBlank
 	public String getRefereeComment() {
 		return this.refereeComment;
 	}
@@ -70,7 +54,6 @@ public class Note extends DomainEntity {
 		this.refereeComment = refereeComment;
 	}
 
-	@NotBlank
 	public String getHandyWorkerComment() {
 		return this.handyWorkerComment;
 	}
@@ -81,17 +64,17 @@ public class Note extends DomainEntity {
 
 
 	//Relationships
-	private Report	reports;
+	private Report	report;
 
 
 	@Valid
 	@ManyToOne(optional = false)
-	public Report getReports() {
-		return this.reports;
+	public Report getReport() {
+		return this.report;
 	}
 
-	public void setReports(final Report reports) {
-		this.reports = reports;
+	public void setReport(final Report reports) {
+		this.report = reports;
 	}
 
 }

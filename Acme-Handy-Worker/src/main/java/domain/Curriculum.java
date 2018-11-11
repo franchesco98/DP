@@ -59,7 +59,7 @@ public class Curriculum extends DomainEntity {
 		this.personalRecord = personalRecord;
 	}
 
-	@NotNull
+	//@NotNull
 	@Valid
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<EducationRecord> getEducationRecords() {
@@ -70,7 +70,6 @@ public class Curriculum extends DomainEntity {
 		this.educationRecords = educationRecords;
 	}
 
-	@NotNull
 	@Valid
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<ProfessionalRecord> getProfessionalRecords() {
@@ -81,7 +80,6 @@ public class Curriculum extends DomainEntity {
 		this.professionalRecords = professionalRecords;
 	}
 
-	@NotNull
 	@Valid
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<EndorserRecord> getEndorserRecords() {
@@ -92,7 +90,6 @@ public class Curriculum extends DomainEntity {
 		this.endorserRecords = endorserRecords;
 	}
 
-	@NotNull
 	@Valid
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<MiscellaneousRecord> getMiscellaneousRecords() {

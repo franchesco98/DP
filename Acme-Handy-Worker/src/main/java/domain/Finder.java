@@ -10,10 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-
-import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -33,7 +30,6 @@ public class Finder extends DomainEntity {
 		super();
 	}
 
-	@NotBlank
 	public String getKeyWord() {
 		return this.keyWord;
 	}
@@ -42,7 +38,6 @@ public class Finder extends DomainEntity {
 		this.keyWord = keyWord;
 	}
 
-	@NotBlank
 	public String getCategory() {
 		return this.category;
 	}
@@ -51,7 +46,6 @@ public class Finder extends DomainEntity {
 		this.category = category;
 	}
 
-	@NotBlank
 	public String getWarranty() {
 		return this.warranty;
 	}
@@ -77,7 +71,7 @@ public class Finder extends DomainEntity {
 	public void setPriceMax(final Double priceMax) {
 		this.priceMax = priceMax;
 	}
-	@NotNull
+
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDateMin() {
 		return this.dateMin;
@@ -86,7 +80,7 @@ public class Finder extends DomainEntity {
 	public void setDateMin(final Date dateMin) {
 		this.dateMin = dateMin;
 	}
-	@NotNull
+
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDateMax() {
 		return this.dateMax;
