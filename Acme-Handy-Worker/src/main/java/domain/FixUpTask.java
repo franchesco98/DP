@@ -108,8 +108,8 @@ public class FixUpTask extends DomainEntity {
 	//Relationships
 
 	private Finder		finder;
-	private Application	application;
 	private Category	category;
+	private Customer	customer;
 
 
 	@Valid
@@ -124,22 +124,21 @@ public class FixUpTask extends DomainEntity {
 
 	@Valid
 	@ManyToOne(optional = false)
-	public Application getApplication() {
-		return this.application;
-	}
-
-	public void setApplication(final Application application) {
-		this.application = application;
-	}
-
-	@Valid
-	@ManyToOne(optional = false)
 	public Category getCategory() {
 		return this.category;
 	}
 
 	public void setCategory(final Category category) {
 		this.category = category;
+	}
+
+	@ManyToOne(optional = false)
+	public Customer getCustomer() {
+		return this.customer;
+	}
+
+	public void setCustomer(final Customer customer) {
+		this.customer = customer;
 	}
 
 }

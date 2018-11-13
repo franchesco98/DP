@@ -7,8 +7,6 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
@@ -112,30 +110,8 @@ public class Actor extends DomainEntity {
 
 	//relationships
 
-	private Collection<Box>		boxes;
-	private Message				messageSent;
-	private Collection<Message>	messageReceived;
+	private Collection<Box>	boxes;
 
-
-	@ManyToMany
-	@Valid
-	public Collection<Message> getMessageReceived() {
-		return this.messageReceived;
-	}
-
-	public void setMessageReceived(final Collection<Message> messageReceived) {
-		this.messageReceived = messageReceived;
-	}
-
-	@ManyToOne(optional = true)
-	@Valid
-	public Message getMessageSent() {
-		return this.messageSent;
-	}
-
-	public void setMessageSent(final Message messageSent) {
-		this.messageSent = messageSent;
-	}
 
 	@OneToMany
 	@NotEmpty

@@ -1668,6 +1668,7 @@
 		<property name="comment" value="Application one" />
 		<property name="rejectionReason" value="You are a noob user" />
         <property name="handyWorker" ref="handyWorker1" />
+        <property name="fixUpTask" ref="fixuptask1" />
         
 	</bean>
 
@@ -1677,7 +1678,8 @@
 		<property name="status" value="PENDING" />
 		<property name="offeredPrice" value="2008.12" />
 		<property name="comment" value="Application two" />
-		  <property name="handyWorker" ref="handyWorker2" />
+		<property name="handyWorker" ref="handyWorker2" />
+		 <property name="fixUpTask" ref="fixuptask2" />
 		
 	</bean>
 
@@ -1688,8 +1690,40 @@
 		<property name="offeredPrice" value="1000.00" />
 		<property name="comment" value="Application three" />
 		  <property name="handyWorker" ref="handyWorker3" />
+		   <property name="fixUpTask" ref="fixuptask1" />
 		
 	</bean>
+	
+	
+	<bean id="application4" class="domain.Application">
+
+		<property name="moment" value="2/16/2018 22:00" />
+		<property name="status" value="ACCEPTED" />
+		<property name="offeredPrice" value="1090.00" />
+		<property name="comment" value="Application three" />
+		<property name="handyWorker" ref="handyWorker3" />
+		 <property name="fixUpTask" ref="fixuptask2" />
+		
+	</bean>
+	
+	
+		<bean id="application5" class="domain.Application">
+
+		<property name="moment" value="2/16/2018 22:00" />
+		<property name="status" value="ACCEPTED" />
+		<property name="offeredPrice" value="1090.00" />
+		<property name="comment" value="Application three" />
+		<property name="handyWorker" ref="handyWorker3" />
+		<property name="fixUpTask" ref="fixuptask2" />
+		<property name="fixUpTask" ref="fixuptask2" />
+		
+	</bean>
+	
+	
+	
+	
+	
+	
 
 <!-- =================================================================================================================== -->
 	<!-- _____________________________PHASES____________________________ -->
@@ -1734,9 +1768,9 @@
 		<property name="maxPrice" value="788.14" />
 		<property name="startTime" value="3/25/2015 12:13" />
 		<property name="endTime" value="4/30/2015 9:24" />
-		<property name="application" ref="application1" />
 		<property name="category" ref="category1" />
 		<property name="finder" ref="finder1" />
+		<property name="customer" ref="customer1" />
 
 	</bean>
 
@@ -1749,10 +1783,10 @@
 		<property name="maxPrice" value="200.15" />
 		<property name="startTime" value="3/20/2015 12:13" />
 		<property name="endTime" value="4/1/2015 9:24" />
-		<property name="application" ref="application2" />
 		<property name="category" ref="category2" />
 		<property name="finder" ref="finder1" />
-
+		<property name="customer" ref="customer1" />
+		
 	</bean>
 
 	<bean id="fixuptask3" class="domain.FixUpTask">
@@ -1764,11 +1798,13 @@
 		<property name="maxPrice" value="150.54" />
 		<property name="startTime" value="3/20/2016 12:13" />
 		<property name="endTime" value="3/30/2016 14:00" />
-		<property name="application" ref="application3" />
 		<property name="category" ref="category3" />
 		<property name="finder" ref="finder1" />
-
+		<property name="customer" ref="customer2" />
 	</bean>
+	
+	
+	
 <!-- =================================================================================================================== -->
 	<!-- _____________________________CATEGORIES____________________________ -->
 

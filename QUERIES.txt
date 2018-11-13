@@ -1,0 +1,63 @@
+12.5.1º a:  select (count(f)*1.0) / (select count(c) from Customer c) from FixUpTask f;
+        b:  select  distinct   count(f) from FixUpTask f  group by f.customer ;
+        c:
+        D:
+
+
+12.5.2º:
+
+
+12.5.3º a:  select avg(f.maxPrice) from FixUpTask f;
+        b:  select min(f.maxPrice) from FixUpTask f;
+        c:  select max(f.maxPrice) from FixUpTask f;
+        D:  select sqrt(sum(f.maxPrice*f.maxPrice)/count(f.maxPrice)-avg(f.maxPrice)*avg(f.maxPrice)) from FixUpTask f;
+
+
+
+12.5.4º a:  select max(a.offeredPrice) from Application a;
+        b:    select min(a.offeredPrice) from Application a;
+        c:    select avg(a.offeredPrice) from Application a;
+        D:    select sqrt(sum(a.offeredPrice * a.offeredPrice) / count(a.offeredPrice) - (avg(a.offeredPrice) * avg(a.offeredPrice))) from Application a;
+          
+          
+12.5.5º : select ((count(a)*1.0)/ (select count(a1)*1.0 from Application a1))*100 from Application a where a.status='PENDING';
+
+12.5.6º : select ((count(a)*1.0)/ (select count(a1)*1.0 from Application a1))*100 from Application a where a.status='ACCEPTED';
+
+12.5.7º : select ((count(a)*1.0)/ (select count(a1)*1.0 from Application a1))*100 from Application a where a.status='REJECTED';
+
+12.5.8º : no sabemos cual es el perido del application ya que en los requisitos no vemos que application tenga un periodo de aceptacion
+
+12.5.9º: parecida a la 10
+
+
+12.5-10º: (casi)
+
+select hw from HandyWorker hw where (select (count(a1)*1.0) / (select count(a2) from Application a2) from Application a1 
+where a1.status='ACCEPTED')* 1.1 <= (select (count(a3)*1.0) / (select count(a4) from Application a4 where hw.id= a4.handyWorker.id)
+from Application a3 where a3.status='ACCEPTED' and hw.id=a3.handyWorker.id) ;
+
+
+
+
+38.5-1º:
+
+38.5-2º:
+
+38.5-3º:
+
+38.5-3º:
+
+38.5-4º:
+
+38.5-5º: (he interpretado los 3 trabajadores con menos quejas):
+
+
+
+ 
+
+
+
+
+
+	                                                                                       

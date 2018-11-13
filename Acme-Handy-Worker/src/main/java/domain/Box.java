@@ -1,10 +1,12 @@
 
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -41,17 +43,17 @@ public class Box extends DomainEntity {
 
 	//relationships
 
-	private Message	message;
+	private Collection<Message>	messages;
 
 
 	@Valid
-	@ManyToOne(optional = true)
-	public Message getMessage() {
-		return this.message;
+	@ManyToMany
+	public Collection<Message> getMessages() {
+		return this.messages;
 	}
 
-	public void setMessage(final Message message) {
-		this.message = message;
+	public void setMessages(final Collection<Message> messages) {
+		this.messages = messages;
 	}
 
 }
