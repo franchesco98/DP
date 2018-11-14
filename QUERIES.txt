@@ -1,0 +1,66 @@
+12.5.1º a:  select (count(f)*1.0) / (select count(c) from Customer c) from FixUpTask f;
+        b:  select  distinct   count(f) from FixUpTask f  group by f.customer ;
+        
+
+12.5.2º: avr: select (count(a)*1.0) / (select count(f) from FixUpTask f) from Application a;
+
+
+
+
+12.5.3º: select avg(f.maxPrice),min(f.maxPrice),max(f.maxPrice),stddev(f.maxPrice) from FixUpTask f;
+
+
+12.5.4º: select avg(a.offeredPrice),min(a.offeredPrice),max(a.offeredPrice),stddev(a.offeredPrice) from Application a;
+
+          
+12.5.5º : select ((count(a)*1.0)/ (select count(a1)*1.0 from Application a1)) from Application a where a.status='PENDING';
+
+12.5.6º : select ((count(a)*1.0)/ (select count(a1)*1.0 from Application a1)) from Application a where a.status='ACCEPTED';
+
+12.5.7º : select ((count(a)*1.0)/ (select count(a1)*1.0 from Application a1)) from Application a where a.status='REJECTED';
+
+12.5.8º : select ((count(a)*1.0)/ (select count(a1)*1.0 from Application a1)) from Application a where a.status='PENDING' and a.fixUpTask.startTime<CURRENT_TIMESTAMP();
+
+12.5.9º:
+
+select c from Customer c where (select (count(f1)*1.0) / (select count(c2) from Customer c2) from FixUpTask f1)* 1.1 <
+= (select (count(f3)*1.0)  from FixUpTask f3 where f3.customer.id= c.id) ; 
+
+
+12.5-10º: 
+
+
+select hw from HandyWorker hw where (select (count(a1)*1.0) / (select count(a2) from Application a2) from Application a1 
+where a1.status='ACCEPTED')* 1.1 <= (select (count(a3)*1.0) / (select count(a4) from Application a4 where hw.id= a4.handyWorker.id)
+from Application a3 where a3.status='ACCEPTED' and hw.id=a3.handyWorker.id) ;
+
+
+
+
+38.5-1º: select (count(co)*1.0) / (select count(f) from FixUpTask f) from Complaint co;
+
+38.5-2º: select (count(n)*1.0) / (select count(r) from Report r) from Note n;
+
+38.5-3º: select count(*)/(select count(f)*1.0 from FixUpTask f) from Complaint c group by c.fixUpTask having count(*)=1;
+
+
+38.5-4º:
+
+38.5-5º: (he interpretado los 3 trabajadores con menos quejas):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select count(*) from Complaint c group by c.fixUpTask having count(*)=1;
