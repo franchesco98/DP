@@ -1885,7 +1885,7 @@
 		<property name="endTime" value="10/30/2018 14:00" />
 		<property name="category" ref="category1" />
 		<property name="finder" ref="finder2" />
-		<property name="customer" ref="customer2" />
+		<property name="customer" ref="customer1" />
 	</bean>
 	
 	

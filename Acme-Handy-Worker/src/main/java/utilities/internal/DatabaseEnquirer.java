@@ -96,6 +96,11 @@ public class DatabaseEnquirer {
 				System.out.printf("%d object%s selected%n", objects.size(), (objects.size() == 1 ? "" : "s"));
 				SchemaPrinter.print(objects);
 				break;
+			case "find":
+				objects = databaseUtil.executeFind(line);
+				System.out.printf("%d object%s selected%n", objects.size(), (objects.size() == 1 ? "" : "s"));
+				SchemaPrinter.print(objects);
+				break;
 			default:
 				System.err.println("Command not understood");
 			}
