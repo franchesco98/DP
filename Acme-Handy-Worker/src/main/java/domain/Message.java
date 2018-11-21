@@ -9,7 +9,6 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.PersistenceContext;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -82,7 +81,6 @@ public class Message extends DomainEntity {
 		return this.flagSpam;
 	}
 
-	@PersistenceContext
 	public void setFlagSpam(final Boolean flagSpam) {
 		this.flagSpam = flagSpam;
 	}

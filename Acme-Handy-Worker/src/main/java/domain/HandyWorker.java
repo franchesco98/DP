@@ -18,7 +18,10 @@ public class HandyWorker extends Endorser {
 
 	public HandyWorker() {
 		super();
+
+		this.make = this.getName();
 	}
+
 	@NotBlank
 	public String getMake() {
 		return this.make;

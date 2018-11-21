@@ -86,7 +86,6 @@ public class Application extends DomainEntity {
 
 	private HandyWorker	handyWorker;
 	private FixUpTask	fixUpTask;
-	private Customer	customer;
 
 
 	@Valid
@@ -106,15 +105,6 @@ public class Application extends DomainEntity {
 
 	public void setFixUpTask(final FixUpTask fixUpTask) {
 		this.fixUpTask = fixUpTask;
-	}
-
-	@ManyToOne(optional = false)
-	public Customer getCustomer() {
-		return this.customer;
-	}
-
-	public void setCustomer(final Customer customer) {
-		this.customer = customer;
 	}
 
 }

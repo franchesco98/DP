@@ -70,6 +70,7 @@ public class Complaint extends DomainEntity {
 
 	private Customer	customer;
 	private Report		report;
+	private FixUpTask	fixUpTask;
 
 
 	@Valid
@@ -90,6 +91,16 @@ public class Complaint extends DomainEntity {
 
 	public void setReport(final Report report) {
 		this.report = report;
+	}
+
+	@Valid
+	@ManyToOne(optional = false)
+	public FixUpTask getFixUpTask() {
+		return this.fixUpTask;
+	}
+
+	public void setFixUpTask(final FixUpTask fixUpTask) {
+		this.fixUpTask = fixUpTask;
 	}
 
 }

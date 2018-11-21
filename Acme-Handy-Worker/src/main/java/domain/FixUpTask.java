@@ -17,10 +17,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Indexed
 @Access(AccessType.PROPERTY)
 public class FixUpTask extends DomainEntity {
 
@@ -39,6 +45,7 @@ public class FixUpTask extends DomainEntity {
 
 	@NotBlank
 	@Column(unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	@Pattern(regexp = "^([0-9]{2})([0-1])([0-9])([0-3])([0-9])(-)(?:[a-zA-Z0-9]*)$")
 	public String getTicker() {
 		return this.ticker;
@@ -59,6 +66,7 @@ public class FixUpTask extends DomainEntity {
 		this.moment = moment;
 	}
 	@NotBlank
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	public String getDescription() {
 		return this.description;
 	}
@@ -67,6 +75,7 @@ public class FixUpTask extends DomainEntity {
 		this.description = description;
 	}
 	@NotBlank
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	public String getAddress() {
 		return this.address;
 	}

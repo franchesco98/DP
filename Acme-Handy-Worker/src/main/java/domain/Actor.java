@@ -39,7 +39,6 @@ public class Actor extends DomainEntity {
 	public Actor() {
 		super();
 	}
-
 	@NotBlank
 	public String getName() {
 		return this.name;
