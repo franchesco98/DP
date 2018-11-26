@@ -1,13 +1,16 @@
 
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
@@ -100,6 +103,20 @@ public class Finder extends DomainEntity {
 		this.lastUpdate = lastUpdate;
 	}
 
+
 	//Relationships
+
+	private Collection<FixUpTask>	fixUpTasks;
+
+
+	@Valid
+	@ManyToMany
+	public Collection<FixUpTask> getFixUpTasks() {
+		return this.fixUpTasks;
+	}
+
+	public void setFixUpTasks(final Collection<FixUpTask> fixUpTasks) {
+		this.fixUpTasks = fixUpTasks;
+	}
 
 }

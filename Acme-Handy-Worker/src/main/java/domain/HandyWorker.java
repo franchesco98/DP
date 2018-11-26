@@ -19,6 +19,7 @@ public class HandyWorker extends Endorser {
 	public HandyWorker() {
 		super();
 	}
+
 	@NotBlank
 	public String getMake() {
 		return this.make;
@@ -32,6 +33,7 @@ public class HandyWorker extends Endorser {
 	//Relationships
 
 	private Curriculum	curriculum;
+	private Finder		finder;
 
 
 	@Valid
@@ -42,6 +44,16 @@ public class HandyWorker extends Endorser {
 
 	public void setCurriculum(final Curriculum curriculum) {
 		this.curriculum = curriculum;
+	}
+
+	@Valid
+	@OneToOne(optional = false)
+	public Finder getFinder() {
+		return this.finder;
+	}
+
+	public void setFinder(final Finder finder) {
+		this.finder = finder;
 	}
 
 }

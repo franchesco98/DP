@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Access(AccessType.PROPERTY)
 public class Endorser extends Actor {
 
-	private double	score;
+	private Double	score;
 
 
 	public Endorser() {
@@ -25,10 +25,10 @@ public class Endorser extends Actor {
 	@Max(1)
 	@Digits(integer = 1, fraction = 2)
 	@Transactional
-	public double getScore() {
+	public Double getScore() {
 		return this.score;
 	}
-	public void setScore(final double score) {
+	public void setScore(final Double score) {
 		this.score = score;
 	}
 

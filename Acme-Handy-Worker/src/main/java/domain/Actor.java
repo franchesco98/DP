@@ -34,12 +34,13 @@ public class Actor extends DomainEntity {
 	private String	phoneNumber;
 	private String	address;
 	private int		numSocialProfile;
+	private boolean	isBanned;
+	private boolean	isSuspicious;
 
 
 	public Actor() {
 		super();
 	}
-
 	@NotBlank
 	public String getName() {
 		return this.name;
@@ -105,6 +106,21 @@ public class Actor extends DomainEntity {
 
 	public void setNumSocialProfile(final int numSocialProfile) {
 		this.numSocialProfile = numSocialProfile;
+	}
+
+	public boolean getIsBanned() {
+		return this.isBanned;
+	}
+
+	public void setIsBanned(final boolean isBanned) {
+		this.isBanned = isBanned;
+	}
+
+	public boolean getIsSuspicious() {
+		return this.isSuspicious;
+	}
+	public void setIsSuspicious(final boolean isSuspicious) {
+		this.isSuspicious = isSuspicious;
 	}
 
 

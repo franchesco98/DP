@@ -69,6 +69,7 @@ public class Phase extends DomainEntity {
 
 	//Relationships
 	private FixUpTask	fixUpTask;
+	private HandyWorker	handyWorker;
 
 
 	@Valid
@@ -79,6 +80,16 @@ public class Phase extends DomainEntity {
 
 	public void setFixUpTask(final FixUpTask fixUpTask) {
 		this.fixUpTask = fixUpTask;
+	}
+
+	@Valid
+	@ManyToOne(optional = false)
+	public HandyWorker getHandyWorker() {
+		return this.handyWorker;
+	}
+
+	public void setHandyWorker(final HandyWorker handyWorker) {
+		this.handyWorker = handyWorker;
 	}
 
 }

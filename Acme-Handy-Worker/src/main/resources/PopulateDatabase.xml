@@ -249,8 +249,17 @@
 	<bean id="configuration1" class="domain.Configuration">
 		<property name="patternPN" value="3333" />
 		<property name="finderCacheTime" value="4" />
-		<property name="numberOfResult" value="50" />
-		
+		<property name="spamWords" value="sex,viagra,cialis,one million,you’ve been selected,Nigeria,sexo,un millón,ha sido seleccionado" />
+		<property name="positiveWordsE" value="good,fantastic,excellent,great,amazing,terrific,beautiful" />
+		<property name="negativeWordsE" value="not,bad,horrible,average,disaster" />
+		<property name="positiveWordsS" value="bueno,fantastico,excelente,genial,sorprendente,estupendo,bonito" />
+        <property name="negativeWordsS" value="no,malo,horrible,regular,desastre" />
+		<property name="nameSystem" value="Acme Handy Worker" />
+		<property name="banner" value="https://tinyurl.com/acme-handy-worker-logo" />
+		<property name="welcomeMessageE" value="Welcome to Acme Handy Worker! Price, quality, and trust in a single place" />
+		<property name="welcomeMessageS" value="¡Bienvenidos a Acme Handy Worker! Precio, calidad y confianza en el mismo sitio" />
+		<property name="VAT" value="21" />
+		<property name="countryCode" value="34" />
 	</bean>
 	
 	<!-- =================================================================================================================== -->
@@ -278,7 +287,9 @@
 			</list>
 		</property>
 		
-		
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
+	
 	</bean>
 	
 	<bean id="admin2" class="domain.Administrator">
@@ -300,7 +311,8 @@
 			<ref bean = "box4admin2" />
 			</list>
 		</property>
-		
+		<property name="isBanned" value="false" />
+		<property name="isSuspicious" value="false" />
 		
 	</bean>
 	
@@ -325,7 +337,8 @@
 			<ref bean = "box4admin3" />
 			</list>
 		</property>
-		
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 		
 	</bean>
 	
@@ -352,7 +365,8 @@
 			<ref bean = "box6admin4" />
 			</list>
 		</property>
-		
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 		
 	</bean>
 	
@@ -693,6 +707,8 @@
 				     <ref bean = "box4referee1" />
 				 </list>
 			</property>
+			<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 		</bean>
 		
 		
@@ -738,6 +754,8 @@
 				<ref bean = "box4referee2" />
 			</list>
 		</property>
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 	
 	</bean>
 	
@@ -785,6 +803,8 @@
 				<ref bean = "box5referee3" />
 			</list>
 		</property>
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 	
 	</bean>
 	
@@ -957,6 +977,8 @@
 				     <ref bean = "box4Customer1" />
 				 </list>
 			</property>
+			<property name="isBanned" value="true" />
+		    <property name="isSuspicious" value="false" />
 		</bean>
 		
 		
@@ -1004,7 +1026,8 @@
 				 </list>
 			</property>
 			<property name="score" value="0.4" />
-			
+			<property name="isBanned" value="true" />
+		    <property name="isSuspicious" value="false" />
 		</bean>
 		
 		
@@ -1334,7 +1357,9 @@
 			<ref bean = "box4_handyWorker_1" />
 			</list>
 		</property>
-		<property name="make" value="Hermanos Pérez" />
+		<property name="make" value="Juan e hijos" />
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 	</bean>
 	
 	
@@ -1383,6 +1408,8 @@
 			</list>
 		</property>
 		<property name="make" value="Juan e hijos" />
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 	</bean>
 	
 	
@@ -1430,6 +1457,8 @@
 			</list>
 		</property>
 		<property name="make" value="Gamusinos S.A" />
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 	</bean>
 	
 	
@@ -1530,6 +1559,8 @@
 			<ref bean = "box4_sponsor1" />
 			</list>
 		</property>
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 	</bean>
 	
 	<bean id="box1_sponsor1" class="domain.Box">
@@ -1572,6 +1603,8 @@
 			<ref bean = "box4_sponsor2" />
 			</list>
 		</property>
+		<property name="isBanned" value="true" />
+		<property name="isSuspicious" value="false" />
 	</bean>
 	
 	<bean id="box1_sponsor2" class="domain.Box">
