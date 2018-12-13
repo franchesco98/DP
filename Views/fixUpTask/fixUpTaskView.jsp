@@ -47,7 +47,7 @@
 	<form:hidden path="customer" />
 	
 
-<jstl:if test="${idZero}">
+<jstl:if test="${complaint.id==0}">
 <form:hidden path="ticker" />
 <form:hidden path="moment" />
 
@@ -56,7 +56,7 @@
 
 
 
-<jstl:if test="${!idZero}">
+<jstl:if test="${complaint.id!=0}">
 
 	<form:label path="ticker">
 	<spring:message code="fixUpTask.ticker" />:
@@ -116,14 +116,14 @@
 	</p>	
 <sprin
 
-<jstl:if test="${idZero}">
+<jstl:if test="${complaint.id!=0}">
 
    <input type="submit" name="create" value="<spring:message code="fixUpTask.create" />" /> 
    
 
 </jstl:if>
 
-<jstl:if test="${!idZero}">
+<jstl:if test="${complaint.id!=0}">
 
    <input type="submit" name="save" value="<spring:message code="fixUpTask.save" />" /> 
    <input type="submit" name="delete" value="<spring:message code="fixUpTask.delete" />" />

@@ -3005,7 +3005,7 @@
 		<property name="attachment" value="http://gyosch.com" />
 		<property name="isFinal" value="True" />
 		<property name="complaint" ref="complaint1" />
-		
+
 	</bean>
 
 
@@ -3187,9 +3187,9 @@
 	<bean id="complaint1" class="domain.Complaint">
 		<property name="ticker" value="180112-000001" />
 		<property name="moment" value="12/11/2009 12:00" />
-		<property name="descrition"
+		<property name="description"
 			value="This is a simple description of the complaint one" />
-		<property name="attachementNumber" value="11" />
+		<property name="attachments" value="http://JuanBosco/misQuejas/queja1/complant.jsp" />
 		<property name="customer" ref="customer1" />
 		<property name="fixUpTask" ref="fixUpTask1" />
 		<property name="referee" ref="referee1" />
@@ -3202,10 +3202,10 @@
 	<bean id="complaint2" class="domain.Complaint">
 		<property name="ticker" value="180112-000002" />
 		<property name="moment" value="12/11/2009 11:00" />
-		<property name="descrition" value="Una descripcion" />
+		<property name="description" value="Una descripcion" />
 		<property name="customer" ref="customer2" />
 		<property name="fixUpTask" ref="fixUpTask1" />
-		<property name="referee" ref="referee4" />		
+		<property name="referee" ref="referee4" />
 	</bean>
 
 	<!-- Complaint3 -->
@@ -3213,7 +3213,7 @@
 	<bean id="complaint3" class="domain.Complaint">
 		<property name="ticker" value="180112-000003" />
 		<property name="moment" value="12/11/2009 11:00" />
-		<property name="descrition" value="Una descripcion" />
+		<property name="description" value="Una descripcion" />
 		<property name="customer" ref="customer1" />
 		<property name="fixUpTask" ref="fixUpTask2" />
 		<property name="referee" ref="referee1" />
@@ -3226,7 +3226,7 @@
 	<bean id="complaint4" class="domain.Complaint">
 		<property name="ticker" value="180112-00000H" />
 		<property name="moment" value="12/11/2017 12:00" />
-		<property name="descrition" value="Una descripcion" />
+		<property name="description" value="Una descripcion" />
 		<property name="customer" ref="customer1" />
 		<property name="fixUpTask" ref="fixUpTask1" />
 		<property name="referee" ref="referee2" />
@@ -3239,7 +3239,8 @@
 	<bean id="complaint5" class="domain.Complaint">
 		<property name="ticker" value="180112-00000A" />
 		<property name="moment" value="12/11/2010 11:40" />
-		<property name="descrition" value="Una descripcion" />
+		<property name="description" value="Una descripcion" />
+		<property name="attachments" value="http://complaint3.com;http://bosh/service/warranty" />
 		<property name="customer" ref="customer1" />
 		<property name="fixUpTask" ref="fixUpTask1" />
 		<property name="referee" ref="referee3" />
@@ -3258,7 +3259,7 @@
 		<property name="moment" value="05/05/2018 13:00" />
 		<property name="summary"
 			value="Resumen del tutorial sobre cómo enfoscar una pared." />
-		
+
 		<property name="sections">
 			<list>
 				<ref bean="section1" />
@@ -3511,8 +3512,8 @@
 		<property name="moment" value="3/31/2012 22:00" />
 		<property name="status" value="REJECTED" />
 		<property name="offeredPrice" value="875.42" />
-		<property name="comment" value="Application one" />
-		<property name="rejectionReason" value="fEW EXPWERIENCE" />
+		<property name="customerComments" value="Application one" />
+		<property name="handyWorkerComments" value="FEW EXPWERIENCE" />
 		<property name="creditCard" ref="creditCard3" />
 		<property name="handyWorker" ref="handy1" />
 		<property name="fixUpTask" ref="fixUpTask1" />
@@ -3524,7 +3525,7 @@
 		<property name="moment" value="3/31/2015 00:00" />
 		<property name="status" value="PENDING" />
 		<property name="offeredPrice" value="2008.12" />
-		<property name="comment" value="Application two" />
+		<property name="handyWorkerComments" value="Application two" />
 		<property name="creditCard" ref="creditCard3" />
 		<property name="handyWorker" ref="handy2" />
 		<property name="fixUpTask" ref="fixUpTask2" />
@@ -3536,7 +3537,7 @@
 		<property name="moment" value="3/31/2012 22:00" />
 		<property name="status" value="ACCEPTED" />
 		<property name="offeredPrice" value="1000.00" />
-		<property name="comment"
+		<property name="handyWorkerComments"
 			value="THE JOB MAY BE A HAD IN ONE IF THERE IS NO ADDED PROBLEMS" />
 		<property name="creditCard" ref="creditCard1" />
 		<property name="handyWorker" ref="handy1" />
@@ -3550,7 +3551,7 @@
 		<property name="moment" value="3/21/2016 17:00" />
 		<property name="status" value="ACCEPTED" />
 		<property name="offeredPrice" value="696.00" />
-		<property name="comment" value="THE FINAL PRICE COULD BE REDUCEN A 20%" />
+		<property name="handyWorkerComments" value="THE FINAL PRICE COULD BE REDUCEN A 20%" />
 		<property name="creditCard" ref="creditCard1" />
 		<property name="handyWorker" ref="handy3" />
 		<property name="fixUpTask" ref="fixUpTask4" />
@@ -3563,7 +3564,7 @@
 		<property name="moment" value="3/31/2015 22:01" />
 		<property name="status" value="ACCEPTED" />
 		<property name="offeredPrice" value="450.00" />
-		<property name="comment" value="LOW PRICE GOOD QUALITY" />
+		<property name="handyWorkerComments" value="LOW PRICE GOOD QUALITY" />
 		<property name="creditCard" ref="creditCard3" />
 		<property name="handyWorker" ref="handy4" />
 		<property name="fixUpTask" ref="fixUpTask2" />
@@ -3576,7 +3577,7 @@
 		<property name="moment" value="3/29/2016 15:00" />
 		<property name="status" value="PENDING" />
 		<property name="offeredPrice" value="500.00" />
-		<property name="comment"
+		<property name="handyWorkerComments"
 			value="EXPERIENCE WITH THIS KIND OF TASK THE OFERED PRICE MAY BE REDUCED" />
 		<property name="handyWorker" ref="handy3" />
 		<property name="fixUpTask" ref="fixUpTask2" />
@@ -3590,7 +3591,7 @@
 		<property name="moment" value="8/21/2017 9:00" />
 		<property name="status" value="PENDING" />
 		<property name="offeredPrice" value="1090.00" />
-		<property name="comment"
+		<property name="handyWorkerComments"
 			value="EXPERIENCED PERSONAL WITH VERY GOOD TECHNICAL SKILL WITH DOMOTIC THINGS" />
 		<property name="handyWorker" ref="handy3" />
 		<property name="fixUpTask" ref="fixUpTask7" />
@@ -3603,11 +3604,11 @@
 		<property name="moment" value="8/20/2017 22:00" />
 		<property name="status" value="REJECTED" />
 		<property name="offeredPrice" value="200.00" />
-		<property name="comment"
+		<property name="handyWorkerComments"
 			value="This is a denied application from the Application " />
 		<property name="handyWorker" ref="handy5" />
 		<property name="fixUpTask" ref="fixUpTask7" />
-		<property name="rejectionReason"
+		<property name="customerComments"
 			value="YOU DONT HAVE ENOUGH TOOL TO FULLFIL THIS APPLICATION" />
 	</bean>
 

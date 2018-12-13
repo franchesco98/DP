@@ -17,6 +17,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -25,8 +26,8 @@ public class Application extends DomainEntity {
 	private Date	moment;
 	private String	status;
 	private double	offeredPrice;
-	private String	comment;
-	private String	rejectionReason;
+	private String	handyWorkerComments;
+	private String	customerComments;
 
 
 	public Application() {
@@ -34,8 +35,9 @@ public class Application extends DomainEntity {
 	}
 
 	@NotNull
-	@Past
 	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -65,20 +67,20 @@ public class Application extends DomainEntity {
 	}
 
 	@NotBlank
-	public String getComment() {
-		return this.comment;
+	public String getHandyWorkerComments() {
+		return this.handyWorkerComments;
 	}
 
-	public void setComment(final String comment) {
-		this.comment = comment;
+	public void setHandyWorkerComments(final String handyWorkerComments) {
+		this.handyWorkerComments = handyWorkerComments;
 	}
 
-	public String getRejectionReason() {
-		return this.rejectionReason;
+	public String getCustomerComments() {
+		return this.customerComments;
 	}
 
-	public void setRejectionReason(final String rejectionReason) {
-		this.rejectionReason = rejectionReason;
+	public void setCustomerComments(final String customerComments) {
+		this.customerComments = customerComments;
 	}
 
 

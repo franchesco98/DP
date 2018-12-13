@@ -15,6 +15,8 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Access(AccessType.PROPERTY)
 public class Finder extends DomainEntity {
@@ -76,6 +78,7 @@ public class Finder extends DomainEntity {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	public Date getDateMin() {
 		return this.dateMin;
 	}
@@ -85,6 +88,7 @@ public class Finder extends DomainEntity {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	public Date getDateMax() {
 		return this.dateMax;
 	}
@@ -93,8 +97,9 @@ public class Finder extends DomainEntity {
 		this.dateMax = dateMax;
 	}
 
-	@Past
 	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	public Date getLastUpdate() {
 		return this.lastUpdate;
 	}

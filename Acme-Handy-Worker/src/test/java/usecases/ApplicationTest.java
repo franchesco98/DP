@@ -47,10 +47,10 @@ public class ApplicationTest extends AbstractTest {
 		final Application a1 = this.applicationService.create();
 		final Application a2 = this.applicationService.create();
 
-		a1.setComment("Comentario de ejemplo");
+		a1.setHandyWorkerComments("Comentario de ejemplo");
 		a1.setOfferedPrice(23.);
 
-		a2.setComment("Comentario de ejemplo 2");
+		a2.setHandyWorkerComments("Comentario de ejemplo 2");
 		a2.setOfferedPrice(25.);
 
 		saved1 = this.handyWorkerService.createApplication(h1, a1, f);

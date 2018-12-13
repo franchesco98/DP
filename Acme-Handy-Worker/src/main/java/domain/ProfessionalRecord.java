@@ -13,6 +13,7 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -37,9 +38,11 @@ public class ProfessionalRecord extends DomainEntity {
 	public void setCompanyName(final String companyName) {
 		this.companyName = companyName;
 	}
+
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -47,8 +50,10 @@ public class ProfessionalRecord extends DomainEntity {
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
-	@NotNull
+
 	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	public Date getEndDate() {
 		return this.endDate;
 	}

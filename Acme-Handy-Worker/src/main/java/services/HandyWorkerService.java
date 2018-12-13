@@ -123,13 +123,11 @@ public class HandyWorkerService {
 		Assert.notNull(handyWorker.getUserAccount().getPassword());
 
 		//comprobamos que no nos han dado cadenas vacias en los at opcionales
-		if (handyWorker.getMiddleName() != null) {
+		if (handyWorker.getMiddleName() != null)
 			Assert.isTrue(!(handyWorker.getMiddleName().trim().equals("")));
-		}
 
-		if (handyWorker.getAddress() != null) {
+		if (handyWorker.getAddress() != null)
 			Assert.isTrue(!(handyWorker.getAddress().trim().equals("")));
-		}
 
 		final HandyWorker result;
 
@@ -197,15 +195,12 @@ public class HandyWorkerService {
 		Assert.isTrue(handyWorker.getFinder().getId() == finder.getId());
 
 		//comprobamos que los parametros no sean cadenas vacias en caso de no ser null
-		if (finder.getKeyWord() != null) {
+		if (finder.getKeyWord() != null)
 			Assert.isTrue(!(finder.getKeyWord().equals("")));
-		}
-		if (finder.getCategory() != null) {
+		if (finder.getCategory() != null)
 			Assert.isTrue(!(finder.getCategory().equals("")));
-		}
-		if (finder.getWarranty() != null) {
+		if (finder.getWarranty() != null)
 			Assert.isTrue(!(finder.getWarranty().equals("")));
-		}
 
 		int idPrincipal;
 		idPrincipal = LoginService.getPrincipal().getId();
@@ -222,54 +217,37 @@ public class HandyWorkerService {
 
 		final int maxResult = configuration.get(0).getNumberOfResult();
 
-		if (difference < configuration.get(0).getFinderCacheTime()) {
-
+		if (difference < configuration.get(0).getFinderCacheTime())
 			return finder.getFixUpTasks();
-		} else {
+		else
 			for (final FixUpTask fixUpTask : allFixUpTasks) {
-				if (finder.getKeyWord() != null) {
-					if (returnFixUpTasks.size() == maxResult) {
+				if (finder.getKeyWord() != null)
+					if (returnFixUpTasks.size() == maxResult)
 						break;
-					}
-				}
-				if (fixUpTask.getTicker().contains(finder.getKeyWord()) || fixUpTask.getDescription().contains(finder.getKeyWord()) || fixUpTask.getAddress().contains(finder.getKeyWord())) {
+				if (fixUpTask.getTicker().contains(finder.getKeyWord()) || fixUpTask.getDescription().contains(finder.getKeyWord()) || fixUpTask.getAddress().contains(finder.getKeyWord()))
 					returnFixUpTasks.add(fixUpTask);
-				}
-				if (finder.getCategory() != null) {
-					if (returnFixUpTasks.size() == maxResult) {
+				if (finder.getCategory() != null)
+					if (returnFixUpTasks.size() == maxResult)
 						break;
-					}
-				}
-				if (fixUpTask.getCategory().getName().contains(finder.getCategory())) {
+				if (fixUpTask.getCategory().getName().contains(finder.getCategory()))
 					returnFixUpTasks.add(fixUpTask);
-				}
-				if (finder.getWarranty() != null) {
-					if (returnFixUpTasks.size() == maxResult) {
+				if (finder.getWarranty() != null)
+					if (returnFixUpTasks.size() == maxResult)
 						break;
-					}
-				}
-				if (fixUpTask.getWarranty().getTitle().contains(finder.getWarranty())) {
+				if (fixUpTask.getWarranty().getTitle().contains(finder.getWarranty()))
 					returnFixUpTasks.add(fixUpTask);
-				}
 
-				if (finder.getPriceMin() != null && finder.getPriceMax() != null) {
-					if (returnFixUpTasks.size() == maxResult) {
+				if (finder.getPriceMin() != null && finder.getPriceMax() != null)
+					if (returnFixUpTasks.size() == maxResult)
 						break;
-					}
-				}
-				if (fixUpTask.getMaxPrice() >= finder.getPriceMin() && fixUpTask.getMaxPrice() <= finder.getPriceMax()) {
+				if (fixUpTask.getMaxPrice() >= finder.getPriceMin() && fixUpTask.getMaxPrice() <= finder.getPriceMax())
 					returnFixUpTasks.add(fixUpTask);
-				}
-				if (finder.getDateMin() != null && finder.getDateMax() != null) {
-					if (returnFixUpTasks.size() == maxResult) {
+				if (finder.getDateMin() != null && finder.getDateMax() != null)
+					if (returnFixUpTasks.size() == maxResult)
 						break;
-					}
-				}
-				if (fixUpTask.getEndTime().before(finder.getDateMin()) && fixUpTask.getEndTime().after(finder.getDateMax())) {
+				if (fixUpTask.getEndTime().before(finder.getDateMin()) && fixUpTask.getEndTime().after(finder.getDateMax()))
 					returnFixUpTasks.add(fixUpTask);
-				}
 			}
-		}
 
 		finder.setFixUpTasks(returnFixUpTasks);
 		this.finderService.save(finder);
@@ -298,18 +276,12 @@ public class HandyWorkerService {
 		Assert.isTrue(handyWorker.getUserAccount().equals(userAccount));
 		Assert.isTrue(handyWorker.getFinder().equals(finder));
 
-		if (finder.getKeyWord() != null) {
+		if (finder.getKeyWord() != null)
 			Assert.isTrue(finder.getKeyWord().trim().equals(""));
-
-		}
-		if (finder.getCategory() != null) {
+		if (finder.getCategory() != null)
 			Assert.isTrue(finder.getCategory().trim().equals(""));
-
-		}
-		if (finder.getWarranty() != null) {
+		if (finder.getWarranty() != null)
 			Assert.isTrue(finder.getWarranty().trim().equals(""));
-
-		}
 
 		this.finderService.save(finder);
 
@@ -366,12 +338,10 @@ public class HandyWorkerService {
 		//solo puede ser un comentario del handy
 
 		final Note oldNote = this.noteService.findOne(note.getId());
-		if (note.getCustomerComment() != null) {
+		if (note.getCustomerComment() != null)
 			Assert.isTrue(note.getCustomerComment().equals(oldNote.getCustomerComment()));
-		}
-		if (note.getRefereeComment() != null) {
+		if (note.getRefereeComment() != null)
 			Assert.isTrue(note.getRefereeComment().equals(oldNote.getRefereeComment()));
-		}
 
 		note.setReport(report);
 		this.noteService.save(note);
@@ -431,7 +401,7 @@ public class HandyWorkerService {
 		application.setStatus("PENDING");
 		application.setHandyWorker(handyWorker);
 		application.setFixUpTask(fixUpTask);
-		application.setRejectionReason(null);
+		application.setCustomerComments(null);
 
 		this.applicationService.save(application);
 		return application;
@@ -473,9 +443,8 @@ public class HandyWorkerService {
 		Assert.isTrue(fixUpTask.getStartTime().before(phase.getStartMoment()));
 		Assert.isTrue(fixUpTask.getEndTime().after(phase.getEndMoment()));
 
-		if (phase.getId() == 0) {
+		if (phase.getId() == 0)
 			phase.setFixUpTask(fixUpTask);
-		}
 
 		this.phaseService.save(phase);
 

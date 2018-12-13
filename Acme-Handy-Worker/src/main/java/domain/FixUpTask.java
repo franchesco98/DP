@@ -54,9 +54,11 @@ public class FixUpTask extends DomainEntity {
 	public void setTicker(final String ticker) {
 		this.ticker = ticker;
 	}
+
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -65,7 +67,6 @@ public class FixUpTask extends DomainEntity {
 		this.moment = moment;
 	}
 	@NotBlank
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	public String getDescription() {
 		return this.description;
 	}
@@ -74,7 +75,6 @@ public class FixUpTask extends DomainEntity {
 		this.description = description;
 	}
 	@NotBlank
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	public String getAddress() {
 		return this.address;
 	}
