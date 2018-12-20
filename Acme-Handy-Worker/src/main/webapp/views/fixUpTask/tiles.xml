@@ -16,9 +16,9 @@
        
 <tiles-definitions>
 
-	<definition name="fixUpTask/fixUpTaskList" extends="master.page">	
+	<definition name="fixUpTask/fixUpTasksList" extends="master.page">	
 		<put-attribute name="title" value="List Fix-Up Tasks" />
-		<put-attribute name="body" value="/views/fixUpTask/fixUpTaskList.jsp" />
+		<put-attribute name="body" value="/views/fixUpTask/fixUpTasksList.jsp" />
 	</definition>
 	
 	<definition name="fixUpTask/fixUpTaskView" extends="master.page">	

@@ -183,8 +183,17 @@ public class CustomerService {
 
 	//R10
 
-	public Collection<FixUpTask> listingFixUpTasksCreatedByCustomer(final int customerId) {
-		return this.customerRepository.findByCustomerId(customerId);
+	public Collection<FixUpTask> listingFixUpTasksCreatedByCustomerPrincipal() {
+
+		final Customer customer = this.findByUserAccount(LoginService.getPrincipal());
+
+		//comprobamos que el principal es un customer
+		final Authority customerAuthority = new Authority();
+		customerAuthority.setAuthority("CUSTOMER");
+		Assert.isTrue(customer.getUserAccount().getAuthorities().contains(customerAuthority));
+
+		return this.customerRepository.findByCustomerId(customer.getId());
+
 	}
 
 	public FixUpTask showFixUpTask(final int fixUpTaskId, final Customer customer) {

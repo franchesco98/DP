@@ -111,7 +111,7 @@ public class CustomerServiceTest extends AbstractTest {
 		final Collection<FixUpTask> fixUpTasks = this.fixUpTaskService.findAll();
 		Collection<FixUpTask> customerFixUpTask;
 		final Customer principal = this.customerService.findCustomerByPrincipal();
-		customerFixUpTask = this.customerService.listingFixUpTasksCreatedByCustomer(principal.getId());
+		customerFixUpTask = this.customerService.listingFixUpTasksCreatedByCustomerPrincipal();
 
 		Assert.isTrue(fixUpTasks.containsAll(customerFixUpTask));
 

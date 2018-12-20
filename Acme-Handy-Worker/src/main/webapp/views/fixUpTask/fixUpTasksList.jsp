@@ -35,7 +35,7 @@
 	</display:column>
     
 
-<security:authorize access="CUSTOMER">
+<security:authorize access="hasRole('CUSTOMER')">
 
     <display:column>
 		<a href="controller/fiUpTask/edit.do?fixUpTaskId=${row.id }&edit=1"><spring:message code="fixUpTask.edit" /></a>
@@ -46,9 +46,9 @@
 	</display:column>
 
 	
-</security:authorize>
+ </security:authorize> 
 
-<security:authorize access="HANDYWORKER">
+     <security:authorize access="hasRole('HANDYWORKER')">
 
 		<display:column>
 				<a href="controller/application/create.do?fixUpTaskId=${row.id}"><spring:message code="fixUpTask.application.create" /></a>
@@ -56,7 +56,7 @@
 			
 	</security:authorize>
 
-	<security:authorize access="CUSTOMER">
+	<security:authorize access="hasRole('CUSTOMER')">
 
 		<display:column>
 				<a href="controller/complaint/create.do?fixUpTaskId=${row.id}"><spring:message code="fixUpTask.complaint.create" /></a>
@@ -67,17 +67,16 @@
 				<a href="controller/complaint/list.do?fixUpTaskId=${row.id}"><spring:message code="fixUpTask.complaints" /></a>
 			</display:column>
 			
-	</security:authorize>
+	</security:authorize> 
 
 </display:table>
 
 
-<security:authorize access="CUSTOMER">
+<security:authorize access="hasRole('CUSTOMER')"> 
 
 <input type="button" name="Create"
 
 		value="<spring:message code="fixUpTask.create" />"
 
 		onclick="javascript: relativeRedir('customer/list.do');" />
-
 </security:authorize>
