@@ -107,7 +107,7 @@ public class SponsorService {
 		} else {
 
 			sponsor.setBoxes(this.boxService.originalBoxes());
-			sponsor.setIsBanned(false);
+			sponsor.getUserAccount().setAccountNonLocked(true);
 			sponsor.setIsSuspicious(false);
 
 			//solo lo usan admin

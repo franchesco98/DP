@@ -32,10 +32,10 @@
 	<jstl:choose>
     <jstl:when test="${rol} == 'admin'">
        
-	<form:label path="isBanned">
+	<form:label path="userAccount.accountNonLocked">
 	<spring:message code="actor.isBanned" />:
 	</form:label>
-	<form:checkbox  path="isBanned"  />
+	<form:checkbox  path="userAccount.accountNonLocked"  />
 	<br />
 	
 	<form:label path="isSuspicious">
@@ -47,7 +47,7 @@
     </jstl:when>    
     <jstl:otherwise>
        
-       <form:hidden path="isBanned" />
+       <form:hidden path="userAccount.accountNonLocked" />
        <form:hidden path="isSuspicious" />
         
     </jstl:otherwise>

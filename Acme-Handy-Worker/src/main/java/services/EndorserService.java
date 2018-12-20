@@ -80,20 +80,18 @@ public class EndorserService {
 		Assert.notNull(endorser.getUserAccount().getPassword());
 
 		//comprobamos que no nos han dado cadenas vacias en los at opcionales
-		if (endorser.getMiddleName() != null) {
+		if (endorser.getMiddleName() != null)
 			Assert.isTrue(!(endorser.getMiddleName().trim().equals("")));
-		}
 
-		if (endorser.getAddress() != null) {
+		if (endorser.getAddress() != null)
 			Assert.isTrue(!(endorser.getAddress().trim().equals("")));
-		}
 
 		Endorser result;
 
 		if (endorser.getId() == 0) {
 
 			endorser.setBoxes(this.boxService.originalBoxes());
-			endorser.setIsBanned(false);
+			endorser.getUserAccount().setAccountNonLocked(true);
 			endorser.setIsSuspicious(false);
 
 			endorser.setScore(0.0);
@@ -132,10 +130,8 @@ public class EndorserService {
 		//en el caso de que tengamos comment no debe ser vacio
 		if (endorsement.getComments() != null) {
 			final String[] comments = endorsement.getComments().split(";;");
-			for (final String comment : comments) {
+			for (final String comment : comments)
 				Assert.isTrue(!comment.trim().equals(""));
-
-			}
 
 		}
 

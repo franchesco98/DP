@@ -117,19 +117,17 @@ public class CustomerService {
 		Assert.notNull(customer.getUserAccount().getPassword());
 
 		//comprobamos que no nos han dado cadenas vacias en los at opcionales
-		if (customer.getMiddleName() != null) {
+		if (customer.getMiddleName() != null)
 			Assert.isTrue(!(customer.getMiddleName().trim().equals("")));
-		}
 
-		if (customer.getAddress() != null) {
+		if (customer.getAddress() != null)
 			Assert.isTrue(!(customer.getAddress().trim().equals("")));
-		}
 
 		Customer result;
 		if (customer.getId() == 0) {
 
 			customer.setBoxes(this.boxService.originalBoxes());
-			customer.setIsBanned(false);
+			customer.getUserAccount().setAccountNonLocked(true);
 			customer.setIsSuspicious(false);
 
 		} else {
@@ -213,10 +211,9 @@ public class CustomerService {
 
 		final FixUpTask res;
 
-		if (fixUpTask.getId() != 0) {
-
+		if (fixUpTask.getId() != 0)
 			fixUpTask.setCustomer(customer);
-		} else {
+		else {
 
 			//ponemos el customer que la crea
 			fixUpTask.setCustomer(customer);
@@ -289,9 +286,8 @@ public class CustomerService {
 		final Application outDate = this.applicationService.findOne(application.getId());
 		Assert.isTrue(outDate.getStatus().equals("PENDING"));
 
-		if (application.equals("ACCEPTED")) {
+		if (application.equals("ACCEPTED"))
 			this.creditCardService.validCreditCard(creditCard);
-		}
 
 		this.sendMessageDueToApplicationUpdating(customer, application);
 		final Application res = this.applicationService.save(application);
@@ -389,12 +385,10 @@ public class CustomerService {
 
 		//solo puede ser un comentario del customer
 		final Note oldNote = this.noteService.findOne(note.getId());
-		if (note.getHandyWorkerComment() != null) {
+		if (note.getHandyWorkerComment() != null)
 			Assert.isTrue(note.getHandyWorkerComment().equals(oldNote.getHandyWorkerComment()));
-		}
-		if (note.getRefereeComment() != null) {
+		if (note.getRefereeComment() != null)
 			Assert.isTrue(note.getRefereeComment().equals(oldNote.getRefereeComment()));
-		}
 
 		note.setReport(report);
 		this.noteService.save(note);

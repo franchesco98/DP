@@ -102,13 +102,11 @@ public class RefereeService {
 		Assert.notNull(referee.getUserAccount().getPassword());
 
 		//comprobamos que no nos han dado cadenas vacias en los at opcionales
-		if (referee.getMiddleName() != null) {
+		if (referee.getMiddleName() != null)
 			Assert.isTrue(!(referee.getMiddleName().trim().equals("")));
-		}
 
-		if (referee.getAddress() != null) {
+		if (referee.getAddress() != null)
 			Assert.isTrue(!(referee.getAddress().trim().equals("")));
-		}
 
 		final Referee result;
 
@@ -120,7 +118,7 @@ public class RefereeService {
 			Assert.isTrue(referee.getUserAccount().equals(userAccount));
 		} else {
 			referee.setBoxes(this.boxService.originalBoxes());
-			referee.setIsBanned(false);
+			referee.getUserAccount().setAccountNonLocked(true);
 			referee.setIsSuspicious(false);
 		}
 
@@ -231,12 +229,10 @@ public class RefereeService {
 
 		//solo puede ser un comentario del handy
 		final Note oldNote = this.noteService.findOne(note.getId());
-		if (note.getCustomerComment() != null) {
+		if (note.getCustomerComment() != null)
 			Assert.isTrue(note.getCustomerComment().equals(oldNote.getCustomerComment()));
-		}
-		if (note.getHandyWorkerComment() != null) {
+		if (note.getHandyWorkerComment() != null)
 			Assert.isTrue(note.getHandyWorkerComment().equals(oldNote.getHandyWorkerComment()));
-		}
 		note.setReport(report);
 		this.noteService.save(note);
 

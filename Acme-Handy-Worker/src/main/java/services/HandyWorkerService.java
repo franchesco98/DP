@@ -134,7 +134,7 @@ public class HandyWorkerService {
 		if (handyWorker.getId() == 0) {
 
 			handyWorker.setBoxes(this.boxService.originalBoxes());
-			handyWorker.setIsBanned(false);
+			handyWorker.getUserAccount().setAccountNonLocked(true);
 			handyWorker.setIsSuspicious(false);
 
 			//le ponemos el make

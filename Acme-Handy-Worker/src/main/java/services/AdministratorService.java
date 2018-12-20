@@ -119,13 +119,11 @@ public class AdministratorService {
 		Assert.notNull(administrator.getUserAccount().getPassword());
 
 		//comprobamos que no nos han dado cadenas vacias en los at opcionales
-		if (administrator.getMiddleName() != null) {
+		if (administrator.getMiddleName() != null)
 			Assert.isTrue(!(administrator.getMiddleName().trim().equals("")));
-		}
 
-		if (administrator.getAddress() != null) {
+		if (administrator.getAddress() != null)
 			Assert.isTrue(!(administrator.getAddress().trim().equals("")));
-		}
 
 		UserAccount userAcount;
 		userAcount = LoginService.getPrincipal();
@@ -136,12 +134,11 @@ public class AdministratorService {
 			Assert.isTrue(userAcount.getAuthorities().contains(Authority.ADMIN));
 
 			administrator.setBoxes(this.boxService.originalBoxes());
-			administrator.setIsBanned(false);
+			administrator.getUserAccount().setAccountNonLocked(true);
 			administrator.setIsSuspicious(false);
-		} else {
+		} else
 			//comprobamos que es su cuenta
 			Assert.isTrue(administrator.getUserAccount().equals(userAcount));
-		}
 
 		result = this.administratorRepository.save(administrator);
 
@@ -282,7 +279,7 @@ public class AdministratorService {
 		Assert.isTrue(userAcount.getAuthorities().contains(Authority.ADMIN));
 		Assert.isTrue(actor.getIsSuspicious());
 
-		actor.setIsBanned(true);
+		actor.getUserAccount().setAccountNonLocked(false);
 
 		this.actorService.save(actor);
 	}
@@ -293,10 +290,10 @@ public class AdministratorService {
 		UserAccount userAcount;
 		userAcount = LoginService.getPrincipal();
 		Assert.isTrue(userAcount.getAuthorities().contains(Authority.ADMIN));
-		Assert.isTrue(actor.getIsBanned());
+		Assert.isTrue(!actor.getUserAccount().isAccountNonLocked());
 
 		actor.setIsSuspicious(false);
-		actor.setIsBanned(false);
+		actor.getUserAccount().setAccountNonLocked(true);
 		this.actorService.save(actor);
 	}
 
@@ -529,27 +526,18 @@ public class AdministratorService {
 
 				//compruebo las negative/positive words de cada coment
 				for (final String comment : comments) {
-					for (final String positiveWordE : positiveWordsE) {
-						if (comment.contains(positiveWordE.trim())) {
+					for (final String positiveWordE : positiveWordsE)
+						if (comment.contains(positiveWordE.trim()))
 							countPositiveWordE++;
-						}
-					}
-					for (final String negativeWordE : negativeWordsE) {
-						if (comment.contains(negativeWordE.trim())) {
+					for (final String negativeWordE : negativeWordsE)
+						if (comment.contains(negativeWordE.trim()))
 							countNegativeWordE++;
-						}
-					}
-					for (final String positiveWordS : positiveWordsS) {
-						if (comment.contains(positiveWordS.trim())) {
+					for (final String positiveWordS : positiveWordsS)
+						if (comment.contains(positiveWordS.trim()))
 							countPositiveWordsS++;
-						}
-					}
-					for (final String negativeWordS : negativeWordsS) {
-						if (comment.contains(negativeWordS.trim())) {
+					for (final String negativeWordS : negativeWordsS)
+						if (comment.contains(negativeWordS.trim()))
 							countNegativeWordsS++;
-						}
-
-					}
 				}
 			}
 
@@ -577,27 +565,18 @@ public class AdministratorService {
 
 				//compruebo las negative/positive words de cada coment
 				for (final String comment : comments) {
-					for (final String positiveWordE : positiveWordsE) {
-						if (comment.contains(positiveWordE.trim())) {
+					for (final String positiveWordE : positiveWordsE)
+						if (comment.contains(positiveWordE.trim()))
 							countPositiveWordE++;
-						}
-					}
-					for (final String negativeWordE : negativeWordsE) {
-						if (comment.contains(negativeWordE.trim())) {
+					for (final String negativeWordE : negativeWordsE)
+						if (comment.contains(negativeWordE.trim()))
 							countNegativeWordE++;
-						}
-					}
-					for (final String positiveWordS : positiveWordsS) {
-						if (comment.contains(positiveWordS.trim())) {
+					for (final String positiveWordS : positiveWordsS)
+						if (comment.contains(positiveWordS.trim()))
 							countPositiveWordsS++;
-						}
-					}
-					for (final String negativeWordS : negativeWordsS) {
-						if (comment.contains(negativeWordS.trim())) {
+					for (final String negativeWordS : negativeWordsS)
+						if (comment.contains(negativeWordS.trim()))
 							countNegativeWordsS++;
-						}
-
-					}
 				}
 			}
 
@@ -626,10 +605,8 @@ public class AdministratorService {
 
 		final String[] positiveWordsE = configuration.getPositiveWordsE().split(",");
 		final List<String> res = new ArrayList<>();
-		for (final String word : positiveWordsE) {
+		for (final String word : positiveWordsE)
 			res.add(word.trim());
-
-		}
 
 		return res;
 
@@ -648,10 +625,8 @@ public class AdministratorService {
 
 		final String[] negativeWordsE = configuration.getNegativeWordsE().split(",");
 		final List<String> res = new ArrayList<>();
-		for (final String word : negativeWordsE) {
+		for (final String word : negativeWordsE)
 			res.add(word.trim());
-
-		}
 
 		return res;
 
@@ -672,10 +647,8 @@ public class AdministratorService {
 
 		final String[] positiveWordsS = configuration.getPositiveWordsS().split(",");
 		final List<String> res = new ArrayList<>();
-		for (final String word : positiveWordsS) {
+		for (final String word : positiveWordsS)
 			res.add(word.trim());
-
-		}
 
 		return res;
 
@@ -695,10 +668,8 @@ public class AdministratorService {
 
 		final String[] negativeWordsS = configuration.getNegativeWordsS().split(",");
 		final List<String> res = new ArrayList<>();
-		for (final String word : negativeWordsS) {
+		for (final String word : negativeWordsS)
 			res.add(word.trim());
-
-		}
 
 		return res;
 
@@ -975,9 +946,8 @@ public class AdministratorService {
 		final String credicCardMakes = configuration.getCreditCardMakes();
 		//comprobamos que la cadena sigue el patron adecuado
 		Assert.isTrue(!credicCardMakes.trim().equals(""));
-		if (credicCardMakes.contains(",")) {
+		if (credicCardMakes.contains(","))
 			Assert.isTrue(!credicCardMakes.replaceAll(",", "").trim().equals(""));
-		}
 		//ver que el principal sea un admin
 		//solo lo usan admin
 		UserAccount userAcount;
@@ -994,9 +964,8 @@ public class AdministratorService {
 		final String spamWords = configuration.getSpamWords();
 		//comprobamos que la cadena sigue el patron adecuado
 		Assert.isTrue(!spamWords.trim().equals(""));
-		if (spamWords.contains(",")) {
+		if (spamWords.contains(","))
 			Assert.isTrue(!spamWords.replaceAll(",", "").trim().equals(""));
-		}
 		//ver que el principal sea un admin
 		//solo lo usan admin
 		UserAccount userAcount;
@@ -1013,9 +982,8 @@ public class AdministratorService {
 		final String negativeWordsS = configuration.getNegativeWordsS();
 		//comprobamos que la cadena sigue el patron adecuado
 		Assert.isTrue(!negativeWordsS.trim().equals(""));
-		if (negativeWordsS.contains(",")) {
+		if (negativeWordsS.contains(","))
 			Assert.isTrue(!negativeWordsS.replaceAll(",", "").trim().equals(""));
-		}
 		//ver que el principal sea un admin
 		//solo lo usan admin
 		UserAccount userAcount;
@@ -1032,9 +1000,8 @@ public class AdministratorService {
 		final String negativeWordsE = configuration.getNegativeWordsE();
 		//comprobamos que la cadena sigue el patron adecuado
 		Assert.isTrue(!negativeWordsE.trim().equals(""));
-		if (negativeWordsE.contains(",")) {
+		if (negativeWordsE.contains(","))
 			Assert.isTrue(!negativeWordsE.replaceAll(",", "").trim().equals(""));
-		}
 		//ver que el principal sea un admin
 		//solo lo usan admin
 		UserAccount userAcount;
@@ -1051,9 +1018,8 @@ public class AdministratorService {
 		final String positiveWordsS = configuration.getPositiveWordsS();
 		//comprobamos que la cadena sigue el patron adecuado
 		Assert.isTrue(!positiveWordsS.trim().equals(""));
-		if (positiveWordsS.contains(",")) {
+		if (positiveWordsS.contains(","))
 			Assert.isTrue(!positiveWordsS.replaceAll(",", "").trim().equals(""));
-		}
 		//ver que el principal sea un admin
 		//solo lo usan admin
 		UserAccount userAcount;
@@ -1070,9 +1036,8 @@ public class AdministratorService {
 		final String positiveWordsE = configuration.getPositiveWordsE();
 		//comprobamos que la cadena sigue el patron adecuado
 		Assert.isTrue(!positiveWordsE.trim().equals(""));
-		if (positiveWordsE.contains(",")) {
+		if (positiveWordsE.contains(","))
 			Assert.isTrue(!positiveWordsE.replaceAll(",", "").trim().equals(""));
-		}
 		//ver que el principal sea un admin
 		//solo lo usan admin
 		UserAccount userAcount;

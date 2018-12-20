@@ -94,7 +94,7 @@ public class CreditCard extends DomainEntity {
 
 
 	@Valid
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	public Actor getActor() {
 		return this.actor;
 	}

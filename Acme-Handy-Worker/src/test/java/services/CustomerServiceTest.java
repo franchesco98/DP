@@ -75,7 +75,7 @@ public class CustomerServiceTest extends AbstractTest {
 		customer.setPhoneNumber("+34 (689) 326892");
 		customer.setAddress("Calle Runge-Kutta N2");
 		//		customer.setBoxes(savedCustomerBoxes);
-		customer.setIsBanned(false);
+		customer.getUserAccount().setAccountNonLocked(true);
 		customer.setIsSuspicious(false);
 		customer.setScore(1.);
 		//		customer.setUserAccount(userAccount);

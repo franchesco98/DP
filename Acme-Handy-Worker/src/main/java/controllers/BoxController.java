@@ -18,20 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import security.Authority;
+import repositories.ActorRepository;
 import security.LoginService;
+import services.ActorService;
 import services.AdministratorService;
 import services.BoxService;
 import services.CustomerService;
 import services.HandyWorkerService;
 import services.RefereeService;
 import services.SponsorService;
-import domain.Administrator;
+import domain.Actor;
 import domain.Box;
 import domain.Customer;
-import domain.HandyWorker;
-import domain.Referee;
-import domain.Sponsor;
 
 @Controller
 @RequestMapping("/box")
@@ -55,6 +53,11 @@ public class BoxController extends AbstractController {
 
 	@Autowired
 	private HandyWorkerService		handyWorkerService;
+	@Autowired
+	private ActorService			actorService;
+
+	@Autowired
+	private ActorRepository			actorRepository;
 
 
 	// Constructors -----------------------------------------------------------
@@ -68,39 +71,47 @@ public class BoxController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Box> boxes = null;
+		final Collection<Box> boxes = null;
 
-		final Authority Authority = (Authority) LoginService.getPrincipal().getAuthorities().toArray()[0];
+		System.out.println("he llegado aqui");
+		System.out.println(LoginService.getPrincipal().getId());
+		final Actor actor = this.actorRepository.findByUserAccountId(LoginService.getPrincipal().getId());
+		System.out.println("he llegado aqui 1");
+		System.out.println(actor);
 
-		//Comprueba si el que está logueado es ADMIN
-		if (Authority.equals(security.Authority.listAuthorities().toArray()[0])) {
-			final Administrator admin = this.administratorService.findByPrincipal();
-			boxes = admin.getBoxes();
-		}
+		//		final Authority Authority = (Authority) LoginService.getPrincipal().getAuthorities().toArray()[0];
+		//
+		//		//Comprueba si el que está logueado es ADMIN
+		//		if (Authority.equals(security.Authority.listAuthorities().toArray()[0])) {
+		//			final Administrator admin = this.administratorService.findByPrincipal();
+		//			boxes = admin.getBoxes();
+		//		}
+		//
+		//		//Comprueba si el que está logueado es CUSTOMER
+		//		if (Authority.equals(security.Authority.listAuthorities().toArray()[1])) {
+		//			final Customer customer = this.customerService.findCustomerByPrincipal();
+		//			boxes = customer.getBoxes();
+		//		}
+		//
+		//		//Comprueba si el que está logueado es REFEREE
+		//		if (Authority.equals(security.Authority.listAuthorities().toArray()[2])) {
+		//			final Referee referee = this.refereeService.findRefereeByPrincipal();
+		//			boxes = referee.getBoxes();
+		//		}
+		//
+		//		//Comprueba si el que está logueado es SPONSOR
+		//		if (Authority.equals(security.Authority.listAuthorities().toArray()[3])) {
+		//			final Sponsor sponsor = this.sponsorService.findSponsorByPrincipal();
+		//			boxes = sponsor.getBoxes();
+		//		}
+		//
+		//		//Comprueba si el que está logueado es HANDYWORKER
+		//		if (Authority.equals(security.Authority.listAuthorities().toArray()[4])) {
+		//			final HandyWorker handyWorker = this.handyWorkerService.findHandyWorkerByPrincipal();
+		//			boxes = handyWorker.getBoxes();
+		//		}
 
-		//Comprueba si el que está logueado es CUSTOMER
-		if (Authority.equals(security.Authority.listAuthorities().toArray()[1])) {
-			final Customer customer = this.customerService.findCustomerByPrincipal();
-			boxes = customer.getBoxes();
-		}
-
-		//Comprueba si el que está logueado es REFEREE
-		if (Authority.equals(security.Authority.listAuthorities().toArray()[2])) {
-			final Referee referee = this.refereeService.findRefereeByPrincipal();
-			boxes = referee.getBoxes();
-		}
-
-		//Comprueba si el que está logueado es SPONSOR
-		if (Authority.equals(security.Authority.listAuthorities().toArray()[3])) {
-			final Sponsor sponsor = this.sponsorService.findSponsorByPrincipal();
-			boxes = sponsor.getBoxes();
-		}
-
-		//Comprueba si el que está logueado es HANDYWORKER
-		if (Authority.equals(security.Authority.listAuthorities().toArray()[4])) {
-			final HandyWorker handyWorker = this.handyWorkerService.findHandyWorkerByPrincipal();
-			boxes = handyWorker.getBoxes();
-		}
+		//boxes = actor.getBoxes();
 
 		result = new ModelAndView("box/boxList");
 

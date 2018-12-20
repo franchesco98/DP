@@ -16,7 +16,6 @@
 	<bean id="customerUserAccount1" class="security.UserAccount">
 		<property name="username" value="customer1" />
 		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
-		<property name="isBanned" value="true" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
@@ -24,6 +23,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="false" />
 	</bean>
 
 	<bean id="customerUserAccount2" class="security.UserAccount">
@@ -36,6 +36,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -50,6 +51,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="customerUserAccount4" class="security.UserAccount">
@@ -62,6 +64,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -76,6 +79,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<!-- SUPER ACCOUNTS -->
@@ -92,6 +96,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<!-- ADMINISTRATOR ACCOUNTS -->
@@ -105,6 +110,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="adminUserAccount2" class="security.UserAccount">
@@ -117,6 +123,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="adminUserAccount3" class="security.UserAccount">
@@ -129,6 +136,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -142,6 +150,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="adminUserAccount5" class="security.UserAccount">
@@ -154,6 +163,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<!-- REFEREE ACCOUNTS -->
@@ -170,6 +180,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -184,6 +195,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="refereeUserAccount3" class="security.UserAccount">
@@ -196,6 +208,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="refereeUserAccount4" class="security.UserAccount">
@@ -208,6 +221,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="refereeUserAccount5" class="security.UserAccount">
@@ -220,6 +234,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -240,6 +255,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -255,6 +271,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -268,6 +285,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -281,6 +299,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="handyUserAccount5" class="security.UserAccount">
@@ -293,6 +312,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -308,6 +328,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -323,6 +344,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="sponsorUserAccount3" class="security.UserAccount">
@@ -335,6 +357,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="sponsorUserAccount4" class="security.UserAccount">
@@ -347,6 +370,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 	<bean id="sponsorUserAccount5" class="security.UserAccount">
@@ -359,6 +383,7 @@
 				</bean>
 			</list>
 		</property>
+		<property name="accountNonLocked" value="true" />
 	</bean>
 
 
@@ -426,7 +451,7 @@
 			</list>
 		</property>
 
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 
 	</bean>
@@ -450,7 +475,7 @@
 				<ref bean="box4admin2" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 
 	</bean>
@@ -476,7 +501,7 @@
 				<ref bean="box4admin3" />
 			</list>
 		</property>
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 
 	</bean>
@@ -504,7 +529,7 @@
 				<ref bean="box6admin4" />
 			</list>
 		</property>
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 
 	</bean>
@@ -531,7 +556,7 @@
 				<ref bean="box6admin5" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 
 	</bean>
@@ -962,7 +987,7 @@
 			</list>
 		</property>
 		<property name="score" value="0.0" />
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -1013,7 +1038,7 @@
 			</list>
 		</property>
 		<property name="score" value="0.0" />
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="true" />
 	</bean>
 
@@ -1063,7 +1088,7 @@
 			</list>
 		</property>
 		<property name="score" value="0.0" />
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="true" />
 	</bean>
 
@@ -1114,7 +1139,7 @@
 			</list>
 		</property>
 		<property name="score" value="0.0" />
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -1165,7 +1190,7 @@
 			</list>
 		</property>
 		<property name="score" value="0.0" />
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="true" />
 	</bean>
 
@@ -1329,7 +1354,7 @@
 				<ref bean="box4referee1" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -1377,7 +1402,7 @@
 				<ref bean="box4referee2" />
 			</list>
 		</property>
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="true" />
 
 	</bean>
@@ -1427,7 +1452,7 @@
 				<ref bean="box5referee3" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="true" />
 
 	</bean>
@@ -1478,7 +1503,7 @@
 				<ref bean="box4referee4" />
 			</list>
 		</property>
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="true" />
 
 	</bean>
@@ -1525,7 +1550,7 @@
 				<ref bean="box4referee5" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 
 	</bean>
@@ -1685,7 +1710,7 @@
 				<ref bean="box4_sponsor1" />
 			</list>
 		</property>
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -1730,7 +1755,7 @@
 				<ref bean="box4_sponsor2" />
 			</list>
 		</property>
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -1774,7 +1799,7 @@
 				<ref bean="box4_sponsor3" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -1818,7 +1843,7 @@
 				<ref bean="box4_sponsor4" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
+		
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -1862,7 +1887,6 @@
 				<ref bean="box4_sponsor5" />
 			</list>
 		</property>
-		<property name="isBanned" value="false" />
 		<property name="isSuspicious" value="false" />
 	</bean>
 
@@ -2301,7 +2325,7 @@
 			</list>
 		</property>
 		<property name="make" value="Juan e hijos" />
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 		<property name="finder" ref="finder1" />
 	</bean>
@@ -2353,7 +2377,7 @@
 			</list>
 		</property>
 		<property name="make" value="Juan e hijos" />
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 		<property name="finder" ref="finder2" />
 	</bean>
@@ -2404,7 +2428,7 @@
 			</list>
 		</property>
 		<property name="make" value="Gamusinos S.A" />
-		<property name="isBanned" value="true" />
+		
 		<property name="isSuspicious" value="false" />
 		<property name="finder" ref="finder3" />
 	</bean>

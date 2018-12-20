@@ -121,7 +121,7 @@ public class ActorService {
 		if (actor.getId() == 0) {
 
 			actor.setBoxes(this.boxService.originalBoxes());
-			actor.setIsBanned(false);
+			actor.getUserAccount().setAccountNonLocked(true);
 			actor.setIsSuspicious(false);
 			result = this.actorRepository.save(actor);
 
