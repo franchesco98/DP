@@ -1,0 +1,10 @@
+.ACCEPTED{
+  background-color: green;
+}
+.REJECTED{
+  background-color: orange;
+}
+
+.expired{
+  background-color: grey;
+}
