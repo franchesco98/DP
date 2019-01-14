@@ -1,0 +1,41 @@
+echo ---> Vista noteList ---> ultima columna nombre mal
+
+ehco ---> Vista phaseList ---> Quitar columna de description
+echo ---> Vistla showFUT ----> mostrar el username del customer y referee relacionado
+
+echo ---> Cuando un customer lista las applications de una FUT suya ---> añadir columna que muestre el nombre, apellido y username del HW que la hace
+
+echo ---> No deja editar el comentario del customer de una application
+
+echo --> No dejar editar una FUT si ya tiene una application ACCEPTED
+
+echo ---> Quitar octavio como nombre en referee
+
+echo --->No dejar crear complaints sobre FUT que no tienen application ACCEPTED
+
+echo ---> Panic si al intentar editar la configuration se eleva excepción
+
+echo ---> Como HW al listar todas las FUT ----> tiles mal
+
+todo futuro lejano --->	No tiene sentido mostrarle un link de complaint ahí , Cuando un HW lista las FUT en las que participa----> Tiles mal y Añadir cuna columna que le lleve a la lista de las complaints relacionadas con esa FUT
+
+
+echo  ---> Mostrar una columna con un link que te lleve al show FUT relacionada en el list de app
+
+echo ---> Repasar r19
+
+
+TODO 
+
+handy 3 no va , algo de personal record
+
+tiles de actor al registrar 
+
+Se tienen que poder crear socialNetworkProfiles
+
+Al crear un admin con campos vacíos no aparecen los erroes de binding
+
+Al crear referee vacío ---> no funciona bien
+
+Al crear warranty --> poner terms y applicable laws como textareas
+
