@@ -39,3 +39,18 @@ Al crear referee vacío ---> no funciona bien
 
 Al crear warranty --> poner terms y applicable laws como textareas
 
+
+
+
+
+
+
+
+NUEVOS TODOs
+
+Cambiar tiles tarjeta de credito 
+Solucionar error al crear un profile
+
+
+
+
