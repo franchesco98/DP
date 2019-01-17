@@ -41,15 +41,16 @@ Al crear warranty --> poner terms y applicable laws como textareas
 
 
 
-
-
-
-
-
-NUEVOS TODOs
+Solucionar error al crear un profile
 
 Cambiar tiles tarjeta de credito 
-Solucionar error al crear un profile
+
+no modificar app con statuss accepted
+
+cambios en varios servicios para evitar hacking
+
+
+
 
 
 
